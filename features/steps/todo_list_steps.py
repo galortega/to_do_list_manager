@@ -10,7 +10,7 @@ def step_given_empty_todo_list(context):
 def step_when_user_adds_task(context, name, description):
   context.todo_list.add_task(name, description)
 
-@then('the to-do list should contain {count} task in total')
+@then('the to-do list should contain {count} tasks in total')
 def step_then_todo_list_should_contain_n_tasks(context, count):
   assert len(context.todo_list.tasks) == int(count)
 
@@ -35,3 +35,15 @@ def step_when_user_lists_all_tasks(context):
 @when('the user marks the task {task_id} as done')
 def step_when_user_marks_task_as_done(context, task_id):
   context.todo_list.mark_task_as_completed(int(task_id))
+
+@when('the user clears the to-do list')
+def step_when_user_clears_todo_list(context):
+    context.todo_list.clear_list()
+
+@when('the user updates the task {task_id} to "{name}" "{description}"')
+def step_when_user_updates_task(context, task_id, name, description):
+    context.todo_list.update_task(int(task_id), name, description)
+
+@when('the user marks the task {task_id} as undone')
+def step_when_user_marks_task_as_undone(context, task_id):
+    context.todo_list.mark_task_as_uncompleted(int(task_id))
