@@ -1,6 +1,5 @@
 # main.py
 import argparse
-from src.models.task import Task 
 from src.services.todo_list import ToDoList
 
 def main():
