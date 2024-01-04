@@ -6,8 +6,14 @@ class ToDoList:
     def __init__(self):
         self.tasks = []
 
-    def add_task(self, title, description):
-        self.tasks.append(Task(title, description))
+    def add_task(self, title, description, status=False):
+        self.tasks.append(Task(title, description, status))
+
+    def find_task(self, name):
+        for task in self.tasks:
+            if task.name == name:
+                return task
+        return None
 
     def list_tasks(self):
         for i, task in enumerate(self.tasks, start=1):

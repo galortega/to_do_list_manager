@@ -1,9 +1,9 @@
 # models/task.py
 class Task:
-    def __init__(self, name, description):
+    def __init__(self, name, description, status=False):
         self.name = name
         self.description = description
-        self.status = False
+        self.status = status
 
     def mark_as_completed(self):
         self.status = True
