@@ -161,4 +161,4 @@ cython_debug/
 
 tasks.pkl
 
-results.json
+result.json
