@@ -15,6 +15,12 @@ class ToDoList:
 
     def mark_task_as_completed(self, task_number):
         self.tasks[task_number - 1].mark_as_completed()
+    
+    def mark_task_as_uncompleted(self, task_number):
+        self.tasks[task_number - 1].mark_as_uncompleted()
+
+    def update_task(self, task_number, title, description):
+        self.tasks[task_number - 1].update_task(title, description)
 
     def clear_list(self):
         self.tasks = []

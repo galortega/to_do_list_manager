@@ -7,3 +7,10 @@ class Task:
 
     def mark_as_completed(self):
         self.status = True
+
+    def mark_as_uncompleted(self):
+        self.status = False
+
+    def update_task(self, title, description):
+        self.name = title
+        self.description = description

@@ -4,9 +4,8 @@ from src.models.task import Task
 from src.services.todo_list import ToDoList
 
 def main():
-    print('Welcome to the To-Do List Manager!\n')
     parser = argparse.ArgumentParser(description='To-Do List Manager')
-    parser.add_argument('command', choices=['add', 'list', 'done', 'clear', 'save', 'load'])
+    parser.add_argument('command', choices=['add', 'list', 'done', 'undone', 'update', 'clear', 'save', 'load'])
     parser.add_argument('params', nargs='*')
     args = parser.parse_args()
 
@@ -26,6 +25,12 @@ def main():
         todo_list.list_tasks()
     elif args.command == 'done':
         todo_list.mark_task_as_completed(int(args.params[0]))
+        todo_list.save_to_file('tasks.pkl')
+    elif args.command == 'undone':
+        todo_list.mark_task_as_uncompleted(int(args.params[0]))
+        todo_list.save_to_file('tasks.pkl')
+    elif args.command == 'update':
+        todo_list.update_task(int(args.params[0]), args.params[1], args.params[2])
         todo_list.save_to_file('tasks.pkl')
     elif args.command == 'clear':
         todo_list.clear_list()
